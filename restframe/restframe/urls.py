@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import router
 from forviewset import views
+from formodelview import views
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
 # from rest_framework.authtoken.views import obtain_auth_token
@@ -11,7 +12,8 @@ from django.contrib.auth import views as auth_views
 from rest_framework_simplejwt import views as jwt_views
 
 router = DefaultRouter()
-router.register('MyView', views.MyViewSet),
+router.register('student',views.StudentView,basename='student'),
+# router.register('MyView', views.MyViewSet ,basename='myview')
 
 
 

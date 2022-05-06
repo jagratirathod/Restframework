@@ -11,9 +11,9 @@ from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAu
 
 # Create your views here.
 
-class MyViewSet(viewsets.ModelViewSet):
-    queryset = Food.objects.all()
-    serializer_class = FoodSerializer
+# class MyViewSet(viewsets.ModelViewSet):
+#     queryset = Food.objects.all()
+#     serializer_class = FoodSerializer
 
     # authentication_classes=[TokenAuthentication]
     # permission_classes=[IsAuthenticated]

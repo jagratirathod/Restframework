@@ -38,7 +38,7 @@ class TestSetUp(APITestCase):
         # self.fake = Faker()
 
         self.user_data = {
-            'email': 'jagrati@gmail.com',
+            'email': 'jagrati02@gmail.com',
             'username': 'jagrati',
             'password': 'jagrati@123',
             "first_name": "jagrati",

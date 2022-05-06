@@ -8,32 +8,23 @@ import json
 import base64
 
 
-class UserRegister(TestSetUp):
-    # def test_user_cannot_register_with_no_data(self):
-    #     # import pdb; pdb.set_trace()
-    #     res = self.client.post(self.register_url)
-    #     self.assertEqual(res.status_code, 200)
+# class UserRegister(TestSetUp):
+#     def test_register_post(self):
+#         res = self.client.post(self.register_url, self.user_data, format='json')
+#         self.assertEqual(res.data['email'], self.user_data['email'])
+#         self.assertEqual(res.status_code, 200)
 
-    def test_register_post(self):
-        res = self.client.post(self.register_url, self.user_data, format='json')
-        self.assertEqual(res.data['email'], self.user_data['email'])
-        self.assertEqual(res.status_code, 200)
+   
 
-    # def test_user_cannot_login_with_unverified_email(self):
-    #     self.client.post(
+    # def test_login_post(self):
+    #     response = self.client.post(
     #         self.register_url, self.user_data, format="json")
+    #     email = response.data['email']
+    #     user = User.objects.get(email=email)
+    #     user.is_verified = True
+    #     user.save()
     #     res = self.client.post(self.login_url, self.user_data, format="json")
-    #     self.assertEqual(res.status_code, 401)
-
-    def test_login_post(self):
-        response = self.client.post(
-            self.register_url, self.user_data, format="json")
-        email = response.data['email']
-        user = User.objects.get(email=email)
-        user.is_verified = True
-        user.save()
-        res = self.client.post(self.login_url, self.user_data, format="json")
-        self.assertEqual(res.status_code, 200)
+    #     self.assertEqual(res.status_code, 200)
 
 
 class AddCategory(TestSetUp1):
@@ -44,12 +35,7 @@ class AddCategory(TestSetUp1):
         # print("response", res.data)
         self.assertEqual(res.status_code, 200)
 
-    # def test_category_post(self):
-    #     res = self.client.post(
-    #         self.category_url, self.catg_data, format="json")
-    #     print("helloworld :", res.data)
-    #     self.assertEqual(res.status_code, 200)
-
+    
 
 class AddRestaurant(TestSetUp2):
     def test_restaurant_get(self):
@@ -62,7 +48,7 @@ class AddRestaurant(TestSetUp2):
 
     def test_restaurant_post(self):
         res = self.client.post(
-            self.restaurant_url, self.restaurant_data, format="json")
+            self.restaurant_url,self.restaurant_data, format="json")
         # print(res.data)
         self.assertEqual(res.status_code, 200)
 
@@ -70,10 +56,8 @@ class AddRestaurant(TestSetUp2):
         myrest = Restaurants(restorant_name="shamsandwitch", address="punjab")
         myrest.save()
 
-        self.myrestaurant_url = reverse(
-            'myrestaurant', kwargs={'pk': myrest.pk})
-        res = self.client.put(self.myrestaurant_url,
-                              self.restaurant_data, format="json")
+        self.myrestaurant_url = reverse('myrestaurant', kwargs={'pk': myrest.pk})
+        res = self.client.put(self.myrestaurant_url,self.restaurant_data, format="json")
         # print("helloworld : ", res.data)
         self.assertEqual(res.status_code, 200)
 

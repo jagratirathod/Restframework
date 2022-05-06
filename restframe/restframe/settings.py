@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'forviewset',
     'rest_framework.authtoken',
     'cart',
+    'formodelview',
 
 
 ]
@@ -153,10 +154,10 @@ REST_FRAMEWORK = {
 
     # 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.FormParser',
-        'rest_framework.parsers.MultiPartParser'
-    )
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     'rest_framework.parsers.FormParser',
+    #     'rest_framework.parsers.MultiPartParser'
+    # )
 }
 
 
